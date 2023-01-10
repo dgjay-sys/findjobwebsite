@@ -9,7 +9,7 @@
         $email = $_POST['user_email'];
 
         
-        $query = "INSERT INTO `user_accounts`(`u_id`, `u_user`, `u_pass`, `u_name`, `u_age`, `email`, `address`, `userType`) VALUES ('','$username','$password','$nname','$age' , '$email', '' ,'$userType')";
+        $query = "INSERT INTO `user_accounts`(`user_id`, `u_user`, `u_pass`, `u_name`, `u_age`, `email`, `address`, `userType`) VALUES ('','$username','$password','$nname','$age' , '$email', '' ,'$userType')";
         $result = mysqli_query($conn, $query);
 
         if($result == 1){
