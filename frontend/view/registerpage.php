@@ -104,7 +104,7 @@
 
 </body>
 
-
+</html>
 <script>
     $(document).ready(function() {
         var typeofUser = "Applicant";
@@ -146,8 +146,7 @@
                     if (response == "inserted") {
                         $("#checker").text("data inserted");
                         $("#checker").fadeOut(2000);
-                    }
-                    else {
+                    } else {
                         alert(response);
                     }
                 }
@@ -187,5 +186,3 @@
 
     });
 </script>
-
-</html>

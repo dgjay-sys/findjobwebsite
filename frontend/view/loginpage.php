@@ -67,7 +67,7 @@
 </body>
 
 
-<script>
+<script>image.png
     var xample = "xample";
     $(document).ready(function() {
 
