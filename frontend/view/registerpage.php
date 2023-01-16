@@ -227,8 +227,6 @@
     </section>
 
 </body>
-
-</html>
 <script>
     $(document).ready(function() {
         var typeofUser = "Applicant";
@@ -325,3 +323,5 @@
 
     });
 </script>
+
+</html>
