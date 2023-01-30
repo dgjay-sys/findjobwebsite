@@ -21,36 +21,6 @@
 </head>
 
 <body>
-    <!-- <div class="container">
-
-        <div id="forCorp">
-            <div>
-                <label for="user_name">Desired Username</label>
-                <input type="text" id="user_name" name="username">
-            </div>
-            <div>
-                <label for="password">Desired Password</label>
-                <input type="text" id="password" name="password">
-            </div>
-            <div>
-                <label for="password">Corporate Name and Branch</label>
-                <input type="text" id="nameornname" name="nameornname">
-            </div>
-            <div>
-                <label for="address">Address</label>
-                <input type="text" id="address" name="address">
-            </div>
-            <div>
-                <label for="email">email</label>
-                <input type="text" id="email" name="email">
-            </div>
-            <button id="registerCorpButton">Create new user</button>
-        </div> -->
-
-    <!-- 
-    </div> -->
-
-
     <section class="vh-100" style="background-color: #eee;">
         <div class="container h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
@@ -74,11 +44,15 @@
                                     <!-- Applicant  Form -->
                                     <div class="mx-1 mx-md-4" id="forApplcnt">
                                         <h6>Appicant Registration</h6>
-                                        <div class="d-flex flex-row align-items-center mb-4">
 
+                                        <!-- app alert -->
+                                        <div class="alert alert-success " role="alert" id="appalert" hidden>
+                                        </div>
+
+                                        <div class="d-flex flex-row align-items-center mb-4">
                                             <div class="form-outline flex-fill mb-0">
                                                 <div class="form-floating">
-                                                    <input type="text" name="user_name" id="user_name" class="form-control " placeholder="username">
+                                                    <input type="text" name="user_name" id="user_name" class="form-control " placeholder="username" required>
                                                     <label for="user_name">username</label>
                                                 </div>
                                             </div>
@@ -87,7 +61,7 @@
 
                                             <div class="form-outline flex-fill mb-0">
                                                 <div class="form-floating">
-                                                    <input type="text" name="password" id="password" class="form-control " placeholder="password">
+                                                    <input type="password" name="password" id="password" class="form-control " placeholder="password" required>
                                                     <label for="password">password</label>
                                                 </div>
                                             </div>
@@ -97,7 +71,7 @@
 
                                             <div class="form-outline flex-fill mb-0">
                                                 <div class="form-floating">
-                                                    <input type="text" name="rpass" id="rpass" class="form-control " placeholder="Repeat Password">
+                                                    <input type="text" name="rpass" id="appRpass" class="form-control " placeholder="Repeat Password" required>
                                                     <label for="rpass">Repeat Password</label>
                                                 </div>
                                             </div>
@@ -107,7 +81,7 @@
 
                                             <div class="form-outline flex-fill mb-0">
                                                 <div class="form-floating">
-                                                    <input type="text" name="nameornname" id="nameornname" class="form-control " placeholder="Name">
+                                                    <input type="text" name="nameornname" id="nameornname" class="form-control " placeholder="Name" required>
                                                     <label for="nameornname">Desired Name</label>
                                                 </div>
                                             </div>
@@ -117,7 +91,7 @@
 
                                             <div class="form-outline flex-fill mb-0">
                                                 <div class="form-floating">
-                                                    <input type="text" name="age" id="age" class="form-control " placeholder="Age">
+                                                    <input type="text" name="age" id="age" class="form-control " placeholder="Age" required>
                                                     <label for="age">Age</label>
                                                 </div>
                                             </div>
@@ -127,28 +101,46 @@
 
                                             <div class="form-outline flex-fill mb-0">
                                                 <div class="form-floating">
-                                                    <input type="text" name="email" id="email" class="form-control " placeholder="Age">
+                                                    <input type="text" name="email" id="email" class="form-control " placeholder="Age" required>
                                                     <label for="email">Email</label>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="d-flex flex-row align-items-center mb-4">
+
+                                            <div class="form-outline flex-fill mb-0">
+                                                <div class="form-floating">
+                                                    <input type="text" name="user_contact" id="user_contact" class="form-control " placeholder="Age" required>
+                                                    <label for="user_contact">Contact</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- app alert -->
+                                        <div class="alert alert-danger " role="alert" id="appDalert" hidden>
                                         </div>
 
                                         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                                             <button id="registerAppButton" class="btn btn-primary btn-lg">Register</button>
                                         </div>
-                                        <div class="alert alert-success " role="alert" id="appalert" hidden>
-
+                                        <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                            <a href="./loginpage.php">Have an Account? Proceed To Log In </a>
                                         </div>
+
                                     </div>
 
                                     <!-- Corporate  Form -->
                                     <div class="mx-1 mx-md-4" id="forCorp">
                                         <h6>Corporate Registration</h6>
+
+                                        <!-- corp alert -->
+                                        <div class="alert alert-success " role="alert" id="corpalert" hidden>
+                                        </div>
+
                                         <div class="d-flex flex-row align-items-center mb-4">
 
                                             <div class="form-outline flex-fill mb-0">
                                                 <div class="form-floating">
-                                                    <input type="text" name="corpuser_name" id="corpuser_name" class="form-control " placeholder="username">
+                                                    <input type="text" name="corpuser_name" id="corpuser_name" class="form-control " placeholder="username" required>
                                                     <label for="corpuser_name">username</label>
                                                 </div>
                                             </div>
@@ -158,7 +150,7 @@
 
                                             <div class="form-outline flex-fill mb-0">
                                                 <div class="form-floating">
-                                                    <input type="text" name="corppassword" id="corppassword" class="form-control " placeholder="password">
+                                                    <input type="text" name="corppassword" id="corppassword" class="form-control " placeholder="password" required>
                                                     <label for="corppassword">password</label>
                                                 </div>
                                             </div>
@@ -168,8 +160,8 @@
 
                                             <div class="form-outline flex-fill mb-0">
                                                 <div class="form-floating">
-                                                    <input type="text" name="rpass" id="rpass" class="form-control " placeholder="Repeat Password">
-                                                    <label for="rpass">Repeat Password</label>
+                                                    <input type="password" name="rpass" id="corpRpass" class="form-control " placeholder="Repeat Password" required>
+                                                    <label for="corpRpass">Repeat Password</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -178,7 +170,7 @@
 
                                             <div class="form-outline flex-fill mb-0">
                                                 <div class="form-floating">
-                                                    <input type="text" name="corpnameornname" id="corpnameornname" class="form-control " placeholder="Corporate Name and Branch">
+                                                    <input type="text" name="corpnameornname" id="corpnameornname" class="form-control " placeholder="Corporate Name and Branch" required>
                                                     <label for="corpnameornname">Corporate Name and Branch </label>
                                                 </div>
                                             </div>
@@ -188,7 +180,7 @@
 
                                             <div class="form-outline flex-fill mb-0">
                                                 <div class="form-floating">
-                                                    <input type="text" name="address" id="address" class="form-control " placeholder="Address">
+                                                    <input type="text" name="address" id="address" class="form-control " placeholder="Address" required>
                                                     <label for="address">Address</label>
                                                 </div>
                                             </div>
@@ -198,18 +190,21 @@
 
                                             <div class="form-outline flex-fill mb-0">
                                                 <div class="form-floating">
-                                                    <input type="text" name="corpemail" id="corpemail" class="form-control form-control-sm" placeholder="email">
+                                                    <input type="text" name="corpemail" id="corpemail" class="form-control form-control-sm" placeholder="email" required>
                                                     <label for="corpemail">Email</label>
                                                 </div>
                                             </div>
                                         </div>
 
+                                        <!-- corp alert -->
+                                        <div class="alert alert-danger " role="alert" id="corpDalert" hidden>
+                                        </div>
+
                                         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                                             <button id="registerCorpButton" class="btn btn-primary btn-lg">Register</button>
                                         </div>
-
-                                        <div class="alert alert-success " role="alert" id="corpalert" hidden>
-
+                                        <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                            <a href="./loginpage.php">Have an Account? Proceed To Log In </a>
                                         </div>
                                     </div>
                                 </div>
@@ -246,7 +241,7 @@
 
 
 
-
+        //  applicant Controller
         $("#registerAppButton").click(() => {
             let user_username = $("#user_name").val();
             let user_password = $("#password").val();
@@ -255,34 +250,57 @@
             let user_type = typeofUser;
             let user_email = $("#email").val();
             let user_add = $("#address").val();
+            let appRepass = $("#appRpass").val();
+            let user_con = $("#user_contact").val();
 
-            $.ajax({
-                type: "POST",
-                url: "../../backend/controller/registercontrol.php",
-                data: {
-                    user_username: user_username,
-                    user_password: user_password,
-                    user_dname: user_dname,
-                    user_age: user_age,
-                    type_user: user_type,
-                    user_email: user_email,
-                    user_add: user_add,
+            if (user_username == "" || user_password == "" || user_dname == "" || user_age == "" || user_age == "" || user_email == "") {
+                $("#appDalert").removeAttr('hidden');
+                document.getElementById("appDalert").innerHTML = "Fill the Textbox"
+                $("#appDalert").fadeOut(3000, () => {
+                    window.location.href = "../view/registerpage.php"
+                });
+            } else {
 
-                },
-                success: function(response) {
-                    if (response == "inserted") {
-                        $("#appalert").removeAttr('hidden');
-                        document.getElementById("appalert").innerHTML = "Data Inserted"
-                        $("#appalert").fadeOut(3000, () => {
-                            window.location.href = "../view/loginpage.php"
-                        });
-                    } else {
-                        alert(response);
-                    }
+                if (appRepass == user_password) {
+                    $.ajax({
+                        type: "POST",
+                        url: "../../backend/controller/registercontrol.php",
+                        data: {
+                            user_username: user_username,
+                            user_password: user_password,
+                            user_dname: user_dname,
+                            user_age: user_age,
+                            type_user: user_type,
+                            user_email: user_email,
+                            user_add: user_add,
+                            user_con: user_con,
+                        },
+                        success: function(response) {
+                            if (response == "inserted") {
+                                $("#appalert").removeAttr('hidden');
+                                document.getElementById("appalert").innerHTML = "Data Inserted"
+                                $("#appalert").fadeOut(3000, () => {
+                                    window.location.href = "../view/loginpage.php"
+                                });
+                            } else {
+                                alert(response);
+                            }
+                        }
+                    });
+                } else {
+                    $("#appDalert").removeAttr('hidden');
+                    document.getElementById("appDalert").innerHTML = "Password and Repassword is not same"
+                    $("#appDalert").fadeOut(3000, () => {
+                        window.location.href = "../view/registerpage.php"
+                    });
                 }
-            });
+
+            }
+
+
         });
 
+        // corporate Controller
         $("#registerCorpButton").click(() => {
             let user_username = $("#corpuser_name").val();
             let user_password = $("#corppassword").val();
@@ -291,35 +309,52 @@
             let user_email = $("#corpemail").val();
             let user_age = $("#age").val();
             let user_add = $("#address").val();
+            let cRepPass = $("#corpRpass").val();
 
-            $.ajax({
-                type: "POST",
-                url: "../../backend/controller/registercontrol.php",
-                data: {
-                    user_username: user_username,
-                    user_password: user_password,
-                    user_dname: user_dname,
-                    type_user: user_type,
-                    user_email: user_email,
-                    user_age: user_age,
-                    user_add: user_add,
-                },
-                success: function(response) {
-                    if (response == "inserted") {
-                        $("#corpalert").removeAttr('hidden');
-                        document.getElementById("corpalert").innerHTML = "Data Inserted"
-                        $("#corpalert").fadeOut(3000, () => {
-                            window.location.href = "../view/loginpage.php"
-                        });
-                    } else {
-                        alert(response);
-                    }
+            if (user_username == "" || user_password == "" || user_dname == "" || user_add == "" || user_email == "") {
+                $("#corpDalert").removeAttr('hidden');
+                document.getElementById("corpDalert").innerHTML = "Fill the Textbox"
+                $("#corpDalert").fadeOut(3000, () => {
+                    window.location.href = "../view/registerpage.php"
+                });
+            } else {
+
+                if (cRepPass == user_password) {
+                    $.ajax({
+                        type: "POST",
+                        url: "../../backend/controller/registercontrol.php",
+                        data: {
+                            user_username: user_username,
+                            user_password: user_password,
+                            user_dname: user_dname,
+                            type_user: user_type,
+                            user_email: user_email,
+                            user_age: user_age,
+                            user_add: user_add,
+                        },
+                        success: function(response) {
+                            if (response == "inserted") {
+                                $("#corpalert").removeAttr('hidden');
+                                document.getElementById("corpalert").innerHTML = "Data Inserted"
+                                $("#corpalert").fadeOut(3000, () => {
+                                    window.location.href = "../view/loginpage.php"
+                                });
+                            } else {
+                                alert(response);
+                            }
+                        }
+                    });
+                } else {
+                    $("#corpDalert").removeAttr('hidden');
+                    document.getElementById("corpDalert").innerHTML = "Password and Repassword is not same"
+                    $("#corpDalert").fadeOut(3000, () => {
+                        window.location.href = "../view/registerpage.php"
+                    });
                 }
-            });
+
+            }
+
         });
-
-
-
 
     });
 </script>

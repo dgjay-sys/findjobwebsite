@@ -15,7 +15,12 @@
                     while($row = mysqli_fetch_array($result)){
                         $_SESSION['user_id'] = $row[0];
                         $_SESSION['u_name'] = $row[3];
-                        $_SESSION['userType'] = $row[7];
+                        $_SESSION['u_age'] = $row[4];
+                        $_SESSION['email'] = $row[5];
+                        $_SESSION['address'] = $row[6];
+                        $_SESSION['contact'] = $row[7];
+                        $_SESSION['usertype'] = $row[8];
+                        $_SESSION['profile'] = $row[9];
                     }
                     echo "Success";
                     mysqli_free_result($result);

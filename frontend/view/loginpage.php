@@ -139,8 +139,8 @@
 <script>
     $(document).ready(function() {
         $('#login').click(() => {
-            var Uname = $("#username").val();
-            var Pword = $("#password").val();
+            let Uname = $("#username").val();
+            let Pword = $("#password").val();
 
             if (Uname === "" && Pword === "") {
                 $("#alert").removeAttr('hidden');
