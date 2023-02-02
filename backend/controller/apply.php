@@ -17,9 +17,9 @@ if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
         $userid =  $_POST["userid"];
         $postid =  $_POST["postid"];
         $user_con = $_POST["user_con"];
+        $u_profile = $_POST["u_profile"];
 
-
-        $query = "INSERT INTO `applicant_table`(`post_id`, `user_id`, `user_name`, `user_age`, `user_email` , `user_contact` , `status`, `user_resume`) VALUES ('$postid','$userid','$user_name','$user_age','$user_email' , '$user_con' , 'pending', '$filename' )";
+        $query = "INSERT INTO `applicant_table`(`post_id`, `user_id`, `user_name`, `user_age`, `user_email` , `user_contact` , `status`, `user_resume` , `u_profile`) VALUES ('$postid','$userid','$user_name','$user_age','$user_email' , '$user_con' , 'pending', '$filename', '$u_profile' )";
         $result = mysqli_query($conn, $query);
 
         if ($result == 1) {

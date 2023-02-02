@@ -23,7 +23,7 @@ include("../../backend/dbconnection.php");
 </head>
 
 <body>
-
+    <?php include("./components/navbar.php") ?>
     <div class="container">
         <!-- job post wall (code) -->
         <?php
@@ -45,7 +45,8 @@ include("../../backend/dbconnection.php");
                     <div class="card-footer">
                         <div class="appinfo">
                             <h5 class="card-header">Your Information</h5>
-                            <input type="text" id="postid" name="postid" value=<?php echo $row['post_id']  ?>>
+                            <input type="text" id="postid" name="postid" hidden value=<?php echo $row['post_id']  ?>>
+                            <input type="text" id="user_profile" name="user_profile" hidden value=<?php echo $_SESSION['profile']  ?>>
                             <div class="input-group input-group-sm mb-3">
                                 <span class="input-group-text" id="inputGroup-sizing-sm">User Id: </span>
                                 <input type="text" name="userid" id="userid" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" value="<?php echo $_SESSION['user_id'] ?>" hidden>
@@ -67,11 +68,11 @@ include("../../backend/dbconnection.php");
                             </div>
                             <div class="input-group input-group-sm mb-3">
                                 <span class="input-group-text" id="inputGroup-sizing-sm">Contact Number: </span>
-                                <input type="text" name="user_contact" id="user_contact" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                <input type="text" name="user_contact" id="user_contact" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" value="<?php echo $_SESSION['contact'] ?>">
                             </div>
                             <div class="input-group input-group-sm mb-3">
                                 <span class="input-group-text" id="inputGroup-sizing-sm">Resume</span>
-                                <!-- <input type="text" placeholder="input file name" id="filename"> -->
+
                                 <input type="file" name="user_resume" id="user_resume" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                             </div>
                             <button class="btn btn-sm btn-outline-primary" onclick="uploadfile()">Apply</button>
@@ -83,46 +84,7 @@ include("../../backend/dbconnection.php");
         <!-- job post wall end (code)-->
 
     </div>
-
     <script>
-        // $('#user_resume').on('change', function() {
-        //     myfile = $(this).val();
-        //     var ext = myfile.split('.').pop();
-        //     if (ext == "pdf" || ext == "docx" || ext == "doc") {
-        //         alert(ext);
-        //     } else {
-        //         alert(ext);
-        //     }
-        // });
-        // $("#applybtn").click(() => {
-        //     let user_name = $('#user_name').val();
-        //     let user_age = $('#user_age').val();
-        //     let user_email = $('#user_email').val();
-        //     let userid = $('#userid').val();
-        //     let postid = $('#postid').val();
-        //     let user_con = $('#user_contact').val()
-        //     let resume = $('#user_resume').prop("files")[0];
-
-        //     $.ajax({
-        //         type: "post",
-        //         url: "../../backend/controller/apply.php",
-        //         data: {
-        //             user_name: user_name,
-        //             user_age: user_age,
-        //             user_email: user_email,
-        //             userid: userid,
-        //             postid: postid,
-        //             user_con: user_con,
-        //             resume: resume,
-        //         },
-        //         success: function(response) {
-        //             if (response == "inserted") {
-        //                 alert('data inserted')
-        //             }
-        //         }
-        //     });
-        // })
-
         function uploadfile() {
             let user_name = $('#user_name').val();
             let user_age = $('#user_age').val();
@@ -131,7 +93,7 @@ include("../../backend/dbconnection.php");
             let postid = $('#postid').val();
             let user_con = $('#user_contact').val()
             let resume = $('#user_resume').prop("files")[0];
-            
+            let user_profile = $('#user_profile').val();
             var form_Data = new FormData();
             form_Data.append("file", resume);
             form_Data.append("user_name", user_name);
@@ -140,8 +102,8 @@ include("../../backend/dbconnection.php");
             form_Data.append("user_con", user_con);
             form_Data.append("userid", userid);
             form_Data.append("postid", postid);
-        
-         
+            form_Data.append("u_profile", user_profile);
+
 
             $.ajax({
                 type: "post",

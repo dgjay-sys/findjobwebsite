@@ -21,43 +21,7 @@ $id = $_GET['id'];
 </head>
 
 <body>
-    <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Navbar</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="../view/homepage.php">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <?php if ($_SESSION['usertype'] == 'Corporate') { ?>
-                                <a class="nav-link" href="../view/checkpost.php">Check Post</a>
-                            <?php } else { ?>
-                                <a class="nav-link" href="../view/checkpost.php">Check Post</a>
-                            <?php } ?>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <?php echo $_SESSION['u_name'] ?>
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="../view/updateinfoform.php">Account Settings</a></li>
-                                <li>
-                                    <form action="./logout.php" class="dropdown-item">
-                                        <button class="btn btn-sm btn-outline-secondary" id="logout">Logout</button>
-                                    </form>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </div>
+    <?php include("./components/navbar.php") ?>
     <?php
     ?>
     <div class="container">
@@ -75,7 +39,7 @@ $id = $_GET['id'];
                             <div class="card mb-3" style="border-radius: .5rem;">
                                 <div class="row g-0">
                                     <div class="col-md-4 gradient-custom text-center text-white" style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-
+                                        <?php echo '<img src="../../backend/controller/uploadedprofile/' . $row['u_profile'] . '" alt="Avatar" class="img-fluid my-5" style="width: 80px;" />' ?>
                                         <h5><?php echo $row['user_name'] ?></h5>
                                         <p>Age: <?php echo $row['user_age'] ?> </p>
                                         <i class="far fa-edit mb-5"></i>
@@ -98,8 +62,9 @@ $id = $_GET['id'];
                                             <hr class="mt-0 mb-4">
                                             <div class="row pt-1">
                                                 <div class="col-6 mb-3">
-                                                    <h6>Status</h6>
-                                                    <p class="text-muted"><?php echo $row['status'] ?></p>
+                                                    <h6>resume</h6>
+
+                                                    <?php echo '<a href="../../backend/controller/uploadedfiles/' . $row['user_resume'] . '">' . $row['user_resume'] . '</a>' ?>
                                                 </div>
                                                 <div class="col-6 mb-3">
                                                     <form action="../view/updatestatus.php" method="post">
@@ -112,7 +77,7 @@ $id = $_GET['id'];
                                                             <option value="for interview">for interview</option>
                                                             <option value="accepted">accepted</option>
                                                         </select>
-                                                        <button  class="btn btn-primary mt-2">Update Status</button>
+                                                        <button class="btn btn-primary mt-2">Update Status</button>
                                                     </form>
                                                 </div>
                                             </div>

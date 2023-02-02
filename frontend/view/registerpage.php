@@ -175,7 +175,14 @@
                                                 </div>
                                             </div>
                                         </div>
-
+                                        <div class="d-flex flex-row align-items-center mb-4">
+                                            <div class="form-outline flex-fill mb-0">
+                                                <div class="form-floating">
+                                                    <input type="text" name="corp_contact" id="corp_contact" class="form-control " placeholder="Age" required>
+                                                    <label for="corp_contact">Contact</label>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="d-flex flex-row align-items-center mb-4">
 
                                             <div class="form-outline flex-fill mb-0">
@@ -310,7 +317,7 @@
             let user_age = $("#age").val();
             let user_add = $("#address").val();
             let cRepPass = $("#corpRpass").val();
-
+            let user_con = $("#corp_contact").val();
             if (user_username == "" || user_password == "" || user_dname == "" || user_add == "" || user_email == "") {
                 $("#corpDalert").removeAttr('hidden');
                 document.getElementById("corpDalert").innerHTML = "Fill the Textbox"
@@ -331,6 +338,7 @@
                             user_email: user_email,
                             user_age: user_age,
                             user_add: user_add,
+                            user_con: user_con,
                         },
                         success: function(response) {
                             if (response == "inserted") {

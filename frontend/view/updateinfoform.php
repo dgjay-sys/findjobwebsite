@@ -22,41 +22,7 @@ $user_id = $_SESSION["user_id"];
 </head>
 
 <body>
-    <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Navbar</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <?php if ($_SESSION['usertype'] == 'Corporate') { ?>
-                                <a class="nav-link" href="../view/checkpost.php">Check Post</a>
-                            <?php } ?>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <?php echo $_SESSION['u_name'] ?>
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="../view/updateinfoform.php">Account Settings</a></li>
-                                <li>
-                                    <form action="./logout.php" class="dropdown-item">
-                                        <button class="btn btn-sm btn-outline-secondary" id="logout">Logout</button>
-                                    </form>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </div>
+    <?php include("./components/navbar.php") ?>
     <section class="text-center text-lg-start">
         <style>
             .cascading-right {
@@ -126,7 +92,7 @@ $user_id = $_SESSION["user_id"];
 
                             <h2 class="fw-bold mt-5">Update Profile </h2>
                             <div class="input-group input-group-sm mb-3">
-                                <input type="text" id="iduser" value="<?php echo $user_id?>">
+                                <input type="text" id="iduser" value="<?php echo $user_id ?>">
                                 <input type="file" name="user_profile" id="user_profile" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                                 <button class="btn btn-primary" id="updateprofile">Update</button>
                             </div>
@@ -154,7 +120,7 @@ $user_id = $_SESSION["user_id"];
                 let userid = $('#iduser').val();
                 var formdata = new FormData();
                 formdata.append('file', profilepic)
-                formdata.append('userid', userid )
+                formdata.append('userid', userid)
 
                 console.log(userid)
                 $.ajax({
